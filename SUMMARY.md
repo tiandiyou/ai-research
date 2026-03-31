@@ -22,6 +22,7 @@
 - **[LangGraph(LangChain)](docs/03-agent-frameworks/AI-Tech-033_LangGraph_Depth.md)** — 图计算Agent编排框架 🔥
 - **[CrewAI(CrewAI)](docs/03-agent-frameworks/AI-Tech-032_CrewAI_Depth.md)** — 多Agent协作框架深度分析 🔥
 - **[Everything Claude Code](docs/03-agent-frameworks/AI-Tech-034_EverythingClaudeCode_Depth.md)** — Claude Code性能优化系统 🔥🔥
+- **[Composio](docs/03-agent-frameworks/AI-Tech-035_Composio_Depth.md)** — 1000+工具集成平台 🔥
 
 ### 🔌 04 - AI 协议与标准
 - **[MCP(ModelContextProtocol)](docs/04-ai-protocols/AI-Tech-009_MCP(ModelContextProtocol).md)** — AI应用标准协议
