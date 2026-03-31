@@ -24,6 +24,7 @@
 - **[Everything Claude Code](docs/03-agent-frameworks/AI-Tech-034_EverythingClaudeCode_Depth.md)** — Claude Code性能优化系统 🔥🔥
 - **[Tavily + Playwright MCP](docs/03-agent-frameworks/AI-Tech-036_Tavily_Playwright_MCP.md)** — 网络搜索与浏览器自动化 🔥
 - **[Pydantic-Deep](docs/03-agent-frameworks/AI-Tech-040_PydanticDeep.md)** — Deep Agent框架 🔥
+- **[Harness Engineering](docs/03-agent-frameworks/AI-Tech-041_HarnessEngineering.md)** — Agent工程实践框架 🔥
 - **[Ralphy](docs/03-agent-frameworks/AI-Tech-039_Ralphy_Depth.md)** — 自主编程循环 🔥
 - **[GPT-Engineer + Aider](docs/03-agent-frameworks/AI-Tech-038_GPTEngineer_Aider.md)** — AI编程Harness 🔥
 - **[DeerFlow](docs/03-agent-frameworks/AI-Tech-037_DeerFlow_Depth.md)** — 字节跳动超级Agent 🔥🔥
