@@ -30,6 +30,10 @@
 - **[DeerFlow](docs/03-agent-frameworks/AI-Tech-037_DeerFlow_Depth.md)** — 字节跳动超级Agent 🔥🔥
 - **[Composio](docs/03-agent-frameworks/AI-Tech-035_Composio_Depth.md)** — 1000+工具集成平台 🔥
 
+### 🔧 06 - 测试框架与工程实践
+- **[Test Harness Framework](docs/06-testing-frameworks/AI-Tech-042_TestHarnessFramework.md)** — 企业级自动化测试框架完全指南 📦
+- **[Setup Harness Script](setup-harness.sh)** — 一键初始化脚本（Java/Python）🚀
+
 ### 🔌 04 - AI 协议与标准
 - **[MCP(ModelContextProtocol)](docs/04-ai-protocols/AI-Tech-009_MCP(ModelContextProtocol).md)** — AI应用标准协议
 
@@ -63,11 +67,12 @@
 |------|--------|
 | 01-ai-platforms | 2 |
 | 02-sdd-frameworks | 4 |
-| 03-agent-frameworks | 2 |
+| 03-agent-frameworks | 12 |
 | 04-ai-protocols | 1 |
 | 05-llm-applications | 21 |
+| 06-testing-frameworks | 2 |
 
-**总计：30 篇文档**
+**总计：42 篇文档**
 
 ---
 
