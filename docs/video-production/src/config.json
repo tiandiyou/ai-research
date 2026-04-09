@@ -1,0 +1,54 @@
+{
+  "title": "AI技术文档视频化生产系统",
+  "subtitle": "Harness + Ralph + Remotion 实战",
+  "duration": 90,
+  "outroText": "感谢观看",
+  "ctaText": "欢迎关注，学习更多AI技术",
+  "segments": [
+    {
+      "type": "title",
+      "duration": 5,
+      "content": "AI技术文档视频化生产系统"
+    },
+    {
+      "type": "text",
+      "duration": 10,
+      "content": "今天我来介绍如何使用Harness+Ralph框架，配合Remotion工具，打造AI技术文档的视频化生产流水线。"
+    },
+    {
+      "type": "text",
+      "duration": 10,
+      "content": "首先，我们使用Ralph框架进行高质量文档的自动化生产。Ralph是一个基于PRD规格的迭代开发模式。"
+    },
+    {
+      "type": "text",
+      "duration": 10,
+      "content": "Ralph的核心特点：每次迭代都是全新的上下文，基于PRD规格驱动，质量检查后才提交。"
+    },
+    {
+      "type": "text",
+      "duration": 10,
+      "content": "Harness框架则提供了多Agent协作和自动化验证能力，确保文档质量的持续提升。"
+    },
+    {
+      "type": "text",
+      "duration": 10,
+      "content": "视频制作部分，我们使用Remotion——一个免费开源的React视频渲染工具。"
+    },
+    {
+      "type": "text",
+      "duration": 10,
+      "content": "Remotion的优势：使用代码生成视频，支持自动化批量生产，导出高质量MP4。"
+    },
+    {
+      "type": "text",
+      "duration": 10,
+      "content": "整个流程：文档编写 → 自动解析 → 视频渲染 → 平台分发，形成完整的知识IP生产流水线。"
+    },
+    {
+      "type": "text",
+      "duration": 10,
+      "content": "效果：每天可生产15篇高质量文档+对应视频，大幅提升知识传播效率。"
+    }
+  ]
+}

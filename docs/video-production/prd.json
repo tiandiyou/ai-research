@@ -1,0 +1,66 @@
+{
+  "projectName": "AI技术文档视频化生产系统",
+  "branchName": "feature/video-framework-v1",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "创建项目基础结构",
+      "description": "搭建Remotion项目基础目录和配置文件",
+      "acceptanceCriteria": [
+        "package.json配置正确",
+        "目录结构完整",
+        "基础组件可用"
+      ],
+      "passes": true,
+      "technicalNotes": "使用Remotion v4 + React 18"
+    },
+    {
+      "id": "US-002",
+      "title": "实现视频组件库",
+      "description": "开发Title/Content/Code/Outro等基础组件",
+      "acceptanceCriteria": [
+        "标题组件正常显示",
+        "内容组件支持文本和代码",
+        "转场动画流畅"
+      ],
+      "passes": true,
+      "technicalNotes": "使用React+Remotion API"
+    },
+    {
+      "id": "US-003",
+      "title": "开发文档解析脚本",
+      "description": "实现从Markdown自动提取内容生成视频配置",
+      "acceptanceCriteria": [
+        "可解析标题和正文",
+        "生成视频片段配置",
+        "支持代码块识别"
+      ],
+      "passes": true,
+      "technicalNotes": "Node.js脚本解析"
+    },
+    {
+      "id": "US-004",
+      "title": "创建视频模板",
+      "description": "开发Tutorial/DeepDive等视频模板",
+      "acceptanceCriteria": [
+        "教程模板可渲染",
+        "支持自定义样式",
+        "时长计算正确"
+      ],
+      "passes": true,
+      "technicalNotes": "Remotion Composition"
+    },
+    {
+      "id": "US-005",
+      "title": "编写演示视频",
+      "description": "使用框架生成一个示例视频",
+      "acceptanceCriteria": [
+        "视频可正常渲染",
+        "画质清晰",
+        "时长5-10分钟"
+      ],
+      "passes": true,
+      "technicalNotes": "使用现有AI技术文档"
+    }
+  ]
+}
