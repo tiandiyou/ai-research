@@ -1,54 +1,79 @@
 {
   "title": "AI技术文档视频化生产系统",
-  "subtitle": "Harness + Ralph + Remotion 实战",
-  "duration": 90,
+  "subtitle": "Harness + Ralph + Remotion 打造知识IP流水线",
+  "duration": 600,
   "outroText": "感谢观看",
   "ctaText": "欢迎关注，学习更多AI技术",
   "segments": [
     {
       "type": "title",
-      "duration": 5,
+      "duration": 8,
       "content": "AI技术文档视频化生产系统"
     },
     {
       "type": "text",
-      "duration": 10,
-      "content": "今天我来介绍如何使用Harness+Ralph框架，配合Remotion工具，打造AI技术文档的视频化生产流水线。"
+      "duration": 45,
+      "content": "在AI时代，知识传播的速度决定了个人和企业的竞争力。今天我来介绍如何使用Harness+Ralph框架，配合Remotion工具，打造一个高效的AI技术文档视频化生产系统。"
     },
     {
       "type": "text",
-      "duration": 10,
-      "content": "首先，我们使用Ralph框架进行高质量文档的自动化生产。Ralph是一个基于PRD规格的迭代开发模式。"
+      "duration": 45,
+      "content": "首先，让我们了解Ralph模式。Ralph是一个基于PRD规格的迭代开发框架。它的核心特点是：每次迭代都是全新的上下文，基于明确的规格定义，质量检查通过后才提交代码。"
     },
     {
       "type": "text",
-      "duration": 10,
-      "content": "Ralph的核心特点：每次迭代都是全新的上下文，基于PRD规格驱动，质量检查后才提交。"
+      "duration": 45,
+      "content": "Ralph的四大核心原则：第一，小任务原则——每个PRD项目应该足够小，可以在一个上下文窗口内完成；第二，迭代验证——每次迭代都运行质量检查；第三，持续学习——每次迭代更新progress.txt记录学习；第四，规格驱动——一切从PRD开始，以PRD结束。"
     },
     {
       "type": "text",
-      "duration": 10,
-      "content": "Harness框架则提供了多Agent协作和自动化验证能力，确保文档质量的持续提升。"
+      "duration": 45,
+      "content": "Harness框架则提供了多Agent协作能力。它包括：协调Agent负责任务编排，规格Agent负责PRD生成，执行Agent负责代码实现，验证Agent负责质量检查，学习Agent负责知识沉淀。"
     },
     {
       "type": "text",
-      "duration": 10,
-      "content": "视频制作部分，我们使用Remotion——一个免费开源的React视频渲染工具。"
+      "duration": 45,
+      "content": "Harness的闭环控制包括：输入层（Spec规范定义）、处理层（Agent执行）、输出层（自动化验证）、反馈层（实时偏差检测与纠正）。这确保了每一次产出都是高质量的。"
     },
     {
       "type": "text",
-      "duration": 10,
-      "content": "Remotion的优势：使用代码生成视频，支持自动化批量生产，导出高质量MP4。"
+      "duration": 45,
+      "content": "视频制作部分，我们使用Remotion——一个基于React的免费开源视频渲染工具。它可以让我们用代码来控制视频的每一帧，实现自动化批量生产。"
     },
     {
       "type": "text",
-      "duration": 10,
-      "content": "整个流程：文档编写 → 自动解析 → 视频渲染 → 平台分发，形成完整的知识IP生产流水线。"
+      "duration": 45,
+      "content": "Remotion的优势在于：首先它是免费开源的；其次支持React的所有特性；第三可以自动化批量生产视频；第四导出格式支持MP4和WebM。高清1080p，30fps流畅画质。"
     },
     {
       "type": "text",
-      "duration": 10,
-      "content": "效果：每天可生产15篇高质量文档+对应视频，大幅提升知识传播效率。"
+      "duration": 45,
+      "content": "整个系统的完整流程是：选题规划（热点分析）→文档编写（Ralph循环）→质量检查（5维度+35项审核）→视频脚本（AI提取）→Remotion渲染→平台分发（YouTube/B站）→数据追踪→持续优化。"
+    },
+    {
+      "type": "text",
+      "duration": 45,
+      "content": "质量体系方面，我们采用五维度评分模型：内容质量35%、文字质量20%、读者体验25%、规格符合度15%、创新性5%。总分75分以上通过。同时配合原有的35项审核清单，确保每个产出都是精品。"
+    },
+    {
+      "type": "text",
+      "duration": 45,
+      "content": "使用这个系统，我们每天可以产出15篇高质量AI技术文档，并自动转换为对应视频。这意味着每周可以发布7个高质量视频，形成持续的内容输出节奏。"
+    },
+    {
+      "type": "text",
+      "duration": 45,
+      "content": "平台分发策略：YouTube适合长视频（10-20分钟），强调SEO优化和算法推荐；B站适合中视频（5-15分钟），强调弹幕互动和社区运营；小红书适合短视频（1-3分钟），强调热点话题和视觉冲击。"
+    },
+    {
+      "type": "text",
+      "duration": 45,
+      "content": "数据追踪方面，我们需要关注：文档的阅读量、收藏数、分享数；视频的播放量、完播率、点赞数、评论数；以及粉丝增长、私域添加、商品转化等转化指标。"
+    },
+    {
+      "type": "text",
+      "duration": 30,
+      "content": "总结一下今天的内容：Ralph+Harness框架确保文档质量，Remotion实现低成本视频生产，整个流水线可复制、可扩展、可持续优化。打造AI知识IP，从今天开始。"
     }
   ]
 }
