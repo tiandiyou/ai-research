@@ -60,7 +60,7 @@
         "Gitee仓库可访问",
         "文档完整可读"
       ],
-      "passes": false
+      "passes": true
     }
   ],
   "passCriteria": "总分≥75，5个Story全部通过"

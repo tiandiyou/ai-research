@@ -1,6 +1,6 @@
 {
-  "title": "AI Agent元年：2026年最大的技术革命",
-  "subtitle": "价值500亿美元的产业正在爆发",
+  "title": "MCP协议：AI工具生态的USB-C",
+  "subtitle": "开发成本降低98%",
   "duration": 600,
   "outroText": "下期再见",
   "ctaText": "点赞收藏关注，学习更多AI技术",
@@ -8,32 +8,32 @@
     {
       "type": "title",
       "duration": 8,
-      "content": "AI Agent元年：2026年最大的技术革命"
+      "content": "MCP协议：AI工具生态的革命"
     },
     {
       "type": "text",
-      "duration": 90,
-      "content": "2026年，一个价值500亿美元的产业正在爆发。OpenAI发布Agent Platform，Anthropic推出Claude Agent SDK，GitHub Copilot全面升级。全球AI Agent市场规模预计突破500亿美元。这不是预测，这是正在发生的事情。"
-    },
-    {
-      "type": "text",
-      "duration": 120,
-      "content": "什么是AI Agent？传统AI是被动问答，AI Agent是主动执行。它等于大模型加工具调用加记忆加规划加反思。它能感知环境，思考决策，执行动作，形成完整闭环。简单来说，传统AI是能说会道，AI Agent是能说会做。"
+      "duration": 82,
+      "content": "以前AI开发者最痛苦的是每个工具都要单独集成。GPT-4、Claude、GitHub、Gmail、Slack、数据库都要单独集成，每个集成都需要单独的API、认证、处理方式。碎片化、无标准、重复劳动。"
     },
     {
       "type": "text",
       "duration": 120,
-      "content": "2026年三大Agent平台：第一，OpenAI Agent Platform，最强模型能力，完整生态系统，企业级安全，缺点是成本较高。第二，Anthropic Claude Agent，最安全，MCP开放生态，编程能力顶级。第三，Microsoft Copilot，企业市场统治地位，Office深度集成。"
+      "content": "MCP来了！MCP等于Model Context Protocol，模型上下文协议。它是AI世界的USB-C统一连接标准。以前100行代码的集成现在只需要10行，一次开发处处运行，开发成本降低98%。"
     },
     {
       "type": "text",
       "duration": 120,
-      "content": "实际效果怎么样？用Claude Code开发一个天气应用需要5分钟，从项目创建到后端代码从前端页面到样式设计，5分钟一个完整的生产级应用就完成了。传统方式需要至少一周。1个AI开发者等于传统10人团队，效率提升10倍。"
+      "content": "MCP对比传统API：传统API点对点连接，MCP是客户端服务器架构一个连接无限扩展。传统API认证各自独立，MCP统一OAuth2.0。传统API工具发现手动配置，MCP自动发现。传统API上下文手动处理，MCP原生支持。"
     },
     {
       "type": "text",
       "duration": 120,
-      "content": "重点提醒：第一，2026年是AI Agent元年，现在是入场最佳时机。第二，AI Agent将重塑所有行业的工作方式。第三，不会使用AI Agent的人将被会用的人取代。机会属于先行者，不是观望者。如果你觉得有用，请点赞收藏关注，我会持续更新AI技术最新内容，下期再见。"
+      "content": "MCP生态：已支持文件系统、GitHub、PostgreSQL、Slack、Gmail、Puppeteer、AWS S3、Google Drive、Spotify。开发中Kubernetes、Figma、Notion、Salesforce、Jira、Linear。Claude Desktop官方支持，Cursor正在使用。"
+    },
+    {
+      "type": "text",
+      "duration": 150,
+      "content": "企业关注MCP的三个理由：第一降低集成成本98%。第二提高安全性统一认证OAuth2.0加mTLS。第三2026年是MCP爆发元年。立即行动安装Claude Desktop加MCP，运行第一个MCP工具。点赞收藏关注，下期再见！"
     }
   ]
 }

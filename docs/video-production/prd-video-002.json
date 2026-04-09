@@ -1,0 +1,42 @@
+{
+  "projectName": "AI技术爆款视频系列 - 第2集",
+  "branchName": "video-002-mcp-revolution",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "编写第2集视频文案",
+      "description": "围绕MCP协议革命主题，编写10分钟视频完整文案",
+      "acceptanceCriteria": [
+        "文案围绕MCP协议是AI工具生态的USB-C",
+        "包含MCP vs 传统API对比",
+        "包含实际使用案例",
+        "结尾有行动号召",
+        "总时长约10分钟"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-002",
+      "title": "更新视频配置",
+      "description": "更新config.json配置",
+      "acceptanceCriteria": [
+        "标题8秒吸睛",
+        "主体内容分段合理",
+        "结尾引导关注",
+        "总时长8-10分钟"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-003",
+      "title": "提交验证",
+      "description": "推送到Gitee",
+      "acceptanceCriteria": [
+        "所有文件已提交",
+        "Gitee仓库可访问"
+      ],
+      "passes": true
+    }
+  ],
+  "passCriteria": "5个Story全部通过"
+}
