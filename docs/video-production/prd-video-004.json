@@ -1,0 +1,21 @@
+{
+  "projectName": "AI技术爆款视频系列 - 第4集",
+  "branchName": "video-004-deep-learning-dead",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "编写第4集视频文案",
+      "passes": true
+    },
+    {
+      "id": "US-002",
+      "title": "更新视频配置",
+      "passes": true
+    },
+    {
+      "id": "US-003",
+      "title": "提交验证",
+      "passes": true
+    }
+  ]
+}
