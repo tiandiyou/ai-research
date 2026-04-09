@@ -1,0 +1,24 @@
+{
+  "projectName": "AI技术爆款视频系列 - 第3集",
+  "branchName": "video-003-ai-programming",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "编写第3集视频文案",
+      "description": "围绕AI编程革命主题，编写10分钟视频完整文案",
+      "passes": true
+    },
+    {
+      "id": "US-002",
+      "title": "更新视频配置",
+      "description": "更新config.json",
+      "passes": true
+    },
+    {
+      "id": "US-003",
+      "title": "提交验证",
+      "description": "推送到Gitee",
+      "passes": true
+    }
+  ]
+}
