@@ -1,59 +1,39 @@
 {
-  "title": "AI技术爆款视频系列",
-  "subtitle": "2026年必看！AI Agent/MCP/编程革命",
+  "title": "AI Agent元年：2026年最大的技术革命",
+  "subtitle": "价值500亿美元的产业正在爆发",
   "duration": 600,
-  "outroText": "感谢观看",
-  "ctaText": "关注我，学习更多AI技术",
+  "outroText": "下期再见",
+  "ctaText": "点赞收藏关注，学习更多AI技术",
   "segments": [
     {
       "type": "title",
       "duration": 8,
-      "content": "AI行业革命：为什么2026年是AI Agent元年"
+      "content": "AI Agent元年：2026年最大的技术革命"
     },
     {
       "type": "text",
-      "duration": 45,
-      "content": "2026年，AI Agent正在经历爆发式增长！OpenAI发布Agent Platform，Anthropic推出Claude Agent SDK，全球市场规模预计突破500亿美元。这不是预测，这正在发生！"
+      "duration": 90,
+      "content": "2026年，一个价值500亿美元的产业正在爆发。OpenAI发布Agent Platform，Anthropic推出Claude Agent SDK，GitHub Copilot全面升级。全球AI Agent市场规模预计突破500亿美元。这不是预测，这是正在发生的事情。"
     },
     {
       "type": "text",
-      "duration": 45,
-      "content": "传统AI是被动问答，而AI Agent是主动执行。它=大模型+工具调用+记忆+规划+反思。Agent感知环境→思考决策→执行动作，形成完整闭环。"
+      "duration": 120,
+      "content": "什么是AI Agent？传统AI是被动问答，AI Agent是主动执行。它等于大模型加工具调用加记忆加规划加反思。它能感知环境，思考决策，执行动作，形成完整闭环。简单来说，传统AI是能说会道，AI Agent是能说会做。"
     },
     {
       "type": "text",
-      "duration": 45,
-      "content": "2026年三大Agent平台对比：OpenAI Agent Platform最强模型+完整生态；Anthropic Claude最安全+MCP开放生态；Microsoft Copilot企业市场统治地位+Office深度集成。"
+      "duration": 120,
+      "content": "2026年三大Agent平台：第一，OpenAI Agent Platform，最强模型能力，完整生态系统，企业级安全，缺点是成本较高。第二，Anthropic Claude Agent，最安全，MCP开放生态，编程能力顶级。第三，Microsoft Copilot，企业市场统治地位，Office深度集成。"
     },
     {
       "type": "text",
-      "duration": 45,
-      "content": "AI Agent应用场景：软件开发效率提升10倍，1人团队=传统10人团队；知识工作自动化50倍提升；个人助理涵盖智能家居/日程管理/财务管理/学习助手。"
+      "duration": 120,
+      "content": "实际效果怎么样？用Claude Code开发一个天气应用需要5分钟，从项目创建到后端代码从前端页面到样式设计，5分钟一个完整的生产级应用就完成了。传统方式需要至少一周。1个AI开发者等于传统10人团队，效率提升10倍。"
     },
     {
       "type": "text",
-      "duration": 45,
-      "content": "MCP协议是AI工具生态的USB-C！以前每个AI工具需要单独集成，现在一个协议连接所有工具。节省98%开发成本！"
-    },
-    {
-      "type": "text",
-      "duration": 45,
-      "content": "Claude Code实测：5分钟完成一个完整Flask天气应用，包含后端、前端、样式、JS，自动创建项目结构，代码质量达到生产级。效率提升60倍！"
-    },
-    {
-      "type": "text",
-      "duration": 45,
-      "content": "AI编程工具能力排名：Claude Code 99分桌面控制+全栈开发；Cursor 95分智能推荐+生态完善；Windsurf 90分最佳协作体验；Devin 88分自主决策。AI主导编程时代已来！"
-    },
-    {
-      "type": "text",
-      "duration": 45,
-      "content": "传统编程正在消亡：2024年AI帮助编程，2025年AI共同编程，2026年AI主导编程。一个AI工具=传统10人开发团队。现在，要么学会AI编程，要么被AI编程替代！"
-    },
-    {
-      "type": "text",
-      "duration": 30,
-      "content": "立即行动：学会Prompt Engineering，掌握LangChain/LangGraph，构建自己的Agent应用。关注我，学习更多AI技术，我们下期再见！"
+      "duration": 120,
+      "content": "重点提醒：第一，2026年是AI Agent元年，现在是入场最佳时机。第二，AI Agent将重塑所有行业的工作方式。第三，不会使用AI Agent的人将被会用的人取代。机会属于先行者，不是观望者。如果你觉得有用，请点赞收藏关注，我会持续更新AI技术最新内容，下期再见。"
     }
   ]
 }

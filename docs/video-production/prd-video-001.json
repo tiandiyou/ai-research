@@ -1,0 +1,67 @@
+{
+  "projectName": "AI技术爆款视频系列 - 第1集",
+  "branchName": "video-001-ai-agent-revolution",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "编写视频文案脚本",
+      "description": "围绕AI Agent 2026革命主题，编写10分钟视频完整文案",
+      "acceptanceCriteria": [
+        "文案围绕AI Agent爆发增长",
+        "包含3大平台对比",
+        "包含实际案例和数据",
+        "结尾有行动号召",
+        "总时长约10分钟"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-002",
+      "title": "优化视频配置",
+      "description": "更新config.json配置，确保视频分段合理、节奏恰当",
+      "acceptanceCriteria": [
+        "标题8秒吸睛",
+        "主体内容每个段落45秒",
+        "结尾30秒引导关注",
+        "总时长8-10分钟"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-003",
+      "title": "完善Remotion组件",
+      "description": "确保视频组件支持高质量渲染",
+      "acceptanceCriteria": [
+        "标题组件：渐变背景+动画",
+        "内容组件：支持长文本",
+        "结尾组件：引导关注+二维码位",
+        "转场动画流畅"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-004",
+      "title": "更新框架README",
+      "description": "完善视频制作框架说明文档",
+      "acceptanceCriteria": [
+        "包含安装说明",
+        "包含使用教程",
+        "包含质量标准",
+        "包含产出目标"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-005",
+      "title": "提交Gitee并验证",
+      "description": "所有文件推送到Gitee仓库",
+      "acceptanceCriteria": [
+        "所有文件已提交",
+        "Gitee仓库可访问",
+        "文档完整可读"
+      ],
+      "passes": false
+    }
+  ],
+  "passCriteria": "总分≥75，5个Story全部通过"
+}
