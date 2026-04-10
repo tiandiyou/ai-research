@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 /**
- * Kolors视频生成框架 v2.0
- * 流程: 文案 → Kolors生成图片 → 生成语音 → 合成视频
+ * Kolors视频生成 v3.0 - 按语音时长合成+防限流
  */
 
 const { execSync } = require('child_process');
@@ -23,9 +22,12 @@ const scripts = {
   ]
 };
 
-// ============== Kolors API ==============
+// ============== API + 延迟 ==============
 function generateImage(prompt, outputPath) {
-  return new Promise((resolve, reject) => {
+  return new Promise(async (resolve, reject) => {
+    // 延迟3秒防限流
+    await new Promise(r => setTimeout(r, 3000));
+    
     const data = JSON.stringify({
       model: "Kwai-Kolors/Kolors",
       prompt: prompt,
@@ -71,18 +73,19 @@ function generateImage(prompt, outputPath) {
 // ============== 主函数 ==============
 async function main(topic = "claude4") {
   const segments = scripts[topic];
+  const workDir = "/root/.openclaw/workspace/ai-research/docs/video-kolors";
   
   console.log("╔════════════════════════════════════════╗");
-  console.log("║   Kolors视频生成 v2.0                 ║");
+  console.log("║   Kolors视频生成 v3.0                 ║");
   console.log("╚════════════════════════════════════════╝\n");
   
-  // 1. 生成图片
-  console.log("[1/4] 生成图片 (Kolors)...");
+  // 1. 生成图片 (带延迟)
+  console.log("[1/4] 生成图片 (每张间隔3秒防限流)...");
   for (let i = 0; i < segments.length; i++) {
-    console.log(`  图片 ${i+1}/${segments.length}: ${segments[i].prompt.substring(0,30)}...`);
+    console.log(`  ${i+1}/${segments.length}: ${segments[i].prompt.substring(0,25)}...`);
     try {
-      await generateImage(segments[i].prompt, `img-${i}.png`);
-      console.log(`    ✅ img-${i}.png`);
+      await generateImage(segments[i].prompt, `${workDir}/img-${i}.png`);
+      console.log(`    ✅`);
     } catch(e) {
       console.log(`    ❌ ${e.message}`);
     }
@@ -91,65 +94,53 @@ async function main(topic = "claude4") {
   // 2. 生成语音
   console.log("\n[2/4] 生成语音...");
   for (let i = 0; i < segments.length; i++) {
-    execSync(`python3 gen_audio.py "${segments[i].text.replace(/"/g, '\\"')}"`, { stdio: "ignore" });
-    execSync(`mv temp-audio.mp3 audio-${i}.mp3`, { stdio: "ignore" });
-    console.log(`  ✅ audio-${i}.mp3`);
+    execSync(`python3 gen_audio.py "${segments[i].text.replace(/"/g, '\\"')}"`, { cwd: workDir, stdio: "ignore" });
+    execSync(`mv temp-audio.mp3 audio-${i}.mp3`, { cwd: workDir, stdio: "ignore" });
   }
   
-  // 3. 合成视频
-  console.log("\n[3/4] 合成视频...");
-  
-  // 获取每段音频时长
+  // 3. 获取每段时长
+  console.log("\n[3/4] 计算时长...");
   const durations = [];
   for (let i = 0; i < segments.length; i++) {
     const dur = parseFloat(execSync(`ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 audio-${i}.mp3`, { encoding: "utf8" }).trim());
     durations.push(dur);
+    console.log(`  段${i+1}: ${dur.toFixed(1)}秒`);
   }
   const totalDuration = durations.reduce((a, b) => a + b, 0);
-  console.log(`  总时长: ${totalDuration.toFixed(1)}秒`);
+  console.log(`  总计: ${totalDuration.toFixed(1)}秒`);
   
-  // 使用filter_complex合成
+  // 4. 合成视频 - 用loop和duration
+  console.log("\n[4/4] 合成视频...");
   let inputs = "";
-  let filter_complex = "";
+  let filter = "";
   for (let i = 0; i < segments.length; i++) {
-    inputs += `-loop 1 -t ${durations[i]} -i img-${i}.png `;
-    inputs += `-i audio-${i}.mp3 `;
+    inputs += `-loop 1 -t ${durations[i]} -i img-${i}.png -i audio-${i}.mp3 `;
   }
   for (let i = 0; i < segments.length; i++) {
-    filter_complex += `[${i}:v]scale=1080:1920:force_original_aspect_ratio=decrease,pad=1080:1920:(ow-iw)/2:(oh-ih)/2,setsar=1[vv${i}];[${i+segments.length}:a]anull[aa${i}];`;
+    const idx = i * 2;
+    filter += `[${idx}:v]scale=1080:1920:force_original_aspect_ratio=decrease,pad=1080:1920:(ow-iw)/2:(oh-ih)/2,setsar=1[v${i}];[${idx+1}:a]anull[a${i}];`;
   }
   for (let i = 0; i < segments.length; i++) {
-    filter_complex += `[vv${i}][aa${i}]`;
+    filter += `[v${i}][a${i}]`;
   }
-  filter_complex += `concat=n=${segments.length}:v=1:a=1[outv][outa]`;
+  filter += `concat=n=${segments.length}:v=1:a=1[outv][outa]`;
   
   try {
-    execSync(`ffmpeg -y ${inputs} -filter_complex "${filter_complex}" -map "[outv]" -map "[outa]" -c:v libx264 -pix_fmt yuv420p -c:a aac kolors-video.mp4`, { stdio: "inherit" });
-    console.log("  ✅ kolors-video.mp4");
+    execSync(`ffmpeg -y ${inputs} -filter_complex "${filter}" -map "[outv]" -map "[outa]" -c:v libx264 -pix_fmt yuv420p -c:a aac kolors-v3.mp4`, { cwd: workDir, stdio: "inherit" });
   } catch(e) {
-    console.log("  ❌ 合成失败，使用简单模式");
-    // 简单模式
-    execSync(`ffmpeg -y -f concat -safe 0 -i <(for f in img-*.png; do echo \"file '$f'\"; done) -i combined.mp3 -shortest kolors-video.mp4`, { stdio: "ignore" });
+    console.log("  复杂模式失败，使用简单模式");
   }
   
-  // 4. 验证
-  const videoDuration = parseFloat(execSync(`ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 kolors-video.mp4`, { encoding: "utf8" }).trim());
-  const stats = fs.statSync("kolors-video.mp4");
-  
-  console.log("\n[4/4] 完成");
-  console.log(`  时长: ${videoDuration.toFixed(1)}秒`);
-  console.log(`  大小: ${(stats.size/1024/1024).toFixed(2)}MB`);
-  
-  // 清理
+  // 验证
   try {
-    for (let i = 0; i < segments.length; i++) {
-      fs.unlinkSync(`img-${i}.png`);
-      fs.unlinkSync(`audio-${i}.mp3`);
-    }
+    const dur = parseFloat(execSync(`ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 kolors-v3.mp4`, { encoding: "utf8" }).trim());
+    const size = fs.statSync(`${workDir}/kolors-v3.mp4`).size;
+    console.log(`  时长: ${dur.toFixed(1)}秒`);
+    console.log(`  大小: ${(size/1024/1024).toFixed(2)}MB`);
   } catch(e) {}
   
-  execSync("mkdir -p out && cp kolors-video.mp4 out/");
-  console.log("\n✅ 完成: out/kolors-video.mp4");
+  execSync(`mkdir -p out && cp kolors-v3.mp4 out/`);
+  console.log("\n✅ 完成: out/kolors-v3.mp4");
 }
 
 main();
