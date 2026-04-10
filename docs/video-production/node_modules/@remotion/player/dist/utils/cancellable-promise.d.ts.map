@@ -1,0 +1,1 @@
+{"version":3,"file":"cancellable-promise.d.ts","sourceRoot":"","sources":["../../src/utils/cancellable-promise.ts"],"names":[],"mappings":"AACA,oBAAY,kBAAkB,GAAG;IAChC,OAAO,EAAE,OAAO,CAAC,OAAO,CAAC,CAAC;IAC1B,MAAM,EAAE,MAAM,IAAI,CAAC;CACnB,CAAC;AACF,eAAO,MAAM,kBAAkB,YACrB,QAAQ,OAAO,CAAC,KACvB,kBAwBF,CAAC"}

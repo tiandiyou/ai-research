@@ -1,0 +1,7 @@
+file 'out/seg-0.mp3'
+file 'out/seg-1.mp3'
+file 'out/seg-2.mp3'
+file 'out/seg-3.mp3'
+file 'out/seg-4.mp3'
+file 'out/seg-5.mp3'
+file 'out/seg-6.mp3'

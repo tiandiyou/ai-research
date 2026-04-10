@@ -1,0 +1,1 @@
+{"version":3,"file":"is-collapsed.d.ts","sourceRoot":"","sources":["../../../../src/editor/components/Timeline/is-collapsed.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,aAAa,EAAC,MAAM,8CAA8C,CAAC;AAC3E,OAAO,EAAC,iBAAiB,EAAC,MAAM,0BAA0B,CAAC;AAE3D,eAAO,MAAM,gBAAgB,SACtB,MAAM,aACD,iBAAiB,YAG5B,CAAC;AAEF,eAAO,MAAM,aAAa,UAClB,aAAa,aACT,aAAa,EAAE,aACf,iBAAiB,KAC1B,OAgBF,CAAC"}

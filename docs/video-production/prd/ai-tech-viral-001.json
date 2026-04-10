@@ -1,0 +1,41 @@
+{
+  "id": "AI-Tech-Viral-001",
+  "title": "AI Agent 2026革命",
+  "type": "干货讲解",
+  "platform": ["抖音", "B站", "视频号"],
+  "duration": "5分钟",
+  "metrics": { "likes": 10000 },
+  "hook": {
+    "text": "90%的人都在用AI聊天，只有1%的人在做这件事！2026年AI最大机会不是大模型，而是AI Agent！",
+    "type": "反常识+数字+痛点"
+  },
+  "sections": [
+    {
+      "title": "为什么Agent是未来",
+      "points": [
+        "大模型是工具，Agent是员工",
+        "自动驾驶 vs 辅助驾驶的差距",
+        "2026年各行业Agent应用爆发"
+      ]
+    },
+    {
+      "title": "普通人如何抓住红利",
+      "points": [
+        "学Agent开发月入3万",
+        "用Agent做副业每天2小时",
+        "Agent创业新风口"
+      ]
+    }
+  ],
+  "golden_sentences": [
+    "大模型是工具，Agent是员工！这就是本质区别！",
+    "2026年，不懂Agent等于错过下一个风口！",
+    "记住：AI不会取代人，但会用AI的人会取代不会用AI的人！",
+    "月入3万真的难吗？学会Agent，兼职收入翻倍！"
+  ],
+  "cta": {
+    "text": "点赞收藏关注，下期手把手教你用Agent搞钱！评论666领取《Agent入门指南》",
+    "actions": ["点赞", "收藏", "关注", "评论"]
+  },
+  "quality_score": null
+}

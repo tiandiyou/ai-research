@@ -2,22 +2,16 @@
   "name": "ai-tech-video-production",
   "version": "1.0.0",
   "description": "AI技术文档视频化生产系统",
+  "type": "module",
   "scripts": {
-    "start": "remotion studio",
-    "build": "remotion render AiTutorial out/video.mp4",
-    "build:all": "node scripts/batch-render.js",
-    "preview": "remotion preview"
+    "build": "REMOTION_BROWSER_EXECUTABLE=/usr/bin/google-chrome remotion render index.ts AiTutorial out/video.mp4"
   },
   "dependencies": {
-    "@remotion/cli": "^4.0.0",
-    "@remotion/core": "^4.0.0",
-    "@remotion/zod-types": "^4.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "zod": "^3.22.0"
-  },
-  "devDependencies": {
-    "@types/react": "^18.2.0",
-    "typescript": "^5.0.0"
+    "@remotion/cli": "^3.0.0",
+    "puppeteer": "^22.15.0",
+    "puppeteer-core": "^22.15.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "remotion": "^3.0.0"
   }
 }

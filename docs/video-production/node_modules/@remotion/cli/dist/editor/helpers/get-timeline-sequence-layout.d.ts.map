@@ -1,0 +1,1 @@
+{"version":3,"file":"get-timeline-sequence-layout.d.ts","sourceRoot":"","sources":["../../../src/editor/helpers/get-timeline-sequence-layout.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,YAAY,EAAC,MAAM,UAAU,CAAC;AAGtC,eAAO,MAAM,qBAAqB,IAAI,CAAC;AAEvC,eAAO,MAAM,yBAAyB;sBAQnB,MAAM;eACb,MAAM;oBACD,MAAM;sBACJ,MAAM,GAAG,IAAI;WACxB,aAAa,OAAO,CAAC;iBACf,MAAM;;;;CA4BnB,CAAC"}

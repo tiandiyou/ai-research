@@ -1,0 +1,1 @@
+{"version":3,"file":"AudioWaveformBar.d.ts","sourceRoot":"","sources":["../../../src/editor/components/AudioWaveformBar.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAgB,MAAM,OAAO,CAAC;AAGrC,eAAO,MAAM,mBAAmB,IAAI,CAAC;AACrC,eAAO,MAAM,mBAAmB,IAAI,CAAC;AASrC,eAAO,MAAM,gBAAgB,EAAE,KAAK,CAAC,EAAE,CAAC;IACvC,SAAS,EAAE,MAAM,CAAC;CAClB,CAQA,CAAC"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"get-waveform-portion.d.ts","sourceRoot":"","sources":["../src/get-waveform-portion.ts"],"names":[],"mappings":"AACA,OAAO,EAAC,SAAS,EAAC,MAAM,SAAS,CAAC;AAElC,aAAK,GAAG,GAAG;IACV,KAAK,EAAE,MAAM,CAAC;IACd,SAAS,EAAE,MAAM,CAAC;CAClB,CAAC;AAEF,eAAO,MAAM,kBAAkB;eAMnB,SAAS;wBACA,MAAM;uBACP,MAAM;qBACR,MAAM;MACpB,GAAG,EAmBN,CAAC"}

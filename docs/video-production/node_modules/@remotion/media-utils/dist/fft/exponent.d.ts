@@ -1,0 +1,2 @@
+export declare const exponent: (k: number, N: number) => [number, number];
+//# sourceMappingURL=exponent.d.ts.map

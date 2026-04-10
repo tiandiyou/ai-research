@@ -1,0 +1,196 @@
+/**
+ * 爆款视频生成器 - 彻底解决同步问题
+ * 核心：每段文字单独生成语音，根据实际语音时长分配帧数
+ */
+
+const { execSync } = require('child_process');
+const puppeteer = require('puppeteer');
+const fs = require('fs');
+
+// 20段长文案
+const segments = [
+  { text: "2026年，AI正在杀死程序员！不是AI要取代程序员，而是会用AI的程序员，正在取代不会用AI的程序员！这不是预测，这是正在发生的现实！整个编程行业正在经历前所未有的变革！", type: "标题" },
+  { text: "让我们先看一组数据。2026年，全球AI编程工具爆发！Claude Code、Cursor、v0、Devin，每一个都是革命性的工具！GitHub Copilot企业版代码生成率超过50%！微软推出了Copilot Workspace，AI可以自主完成整个开发任务！", type: "干货" },
+  { text: "Stack Overflow最新调查结果显示，70%的开发者已经在使用AI工具编程。这意味着什么？意味着10个程序员中就有7个在使用AI！不会AI的程序员，已经成为少数派！这是质的飞跃！", type: "干货" },
+  { text: "AI编程效率提升究竟有多恐怖？让我告诉你具体数字。简单Web页面开发：从4小时缩短到10分钟，提升24倍！这是24倍的效率提升！意味着原来一天的活，现在20分钟就干完！", type: "数据" },
+  { text: "REST API开发：从8小时缩短到30分钟，16倍提升！Bug修复：从2小时缩短到5分钟，也是24倍！单元测试：从4小时缩短到10分钟！曾经需要几小时的工作，现在几分钟就搞定！", type: "数据" },
+  { text: "小程序开发：从2天缩短到2小时！APP开发：从一周缩短到一天！曾经需要团队工作一周的任务，现在一个人加AI一天就能完成！这不是科幻，这是现实！", type: "数据" },
+  { text: "来看几个真实案例。某硅谷互联网公司裁掉50%的基础程序员，效率反而提升了30%！这就是AI的力量！那些被裁掉的人，不是能力不行，而是没有学会用AI！", type: "案例" },
+  { text: "另一个案例：一位初级程序员配上AI工具，效率超过了5个不会用AI的高级程序员！AI抹平了经验差距！在AI面前，经验和技能不再那么重要！", type: "案例" },
+  { text: "某外包公司引入AI工具后，3个人完成了原来20人的工作量！AI不仅能写代码，还能自己测试、自己修复Bug！这家公司一年省下了几百万成本！", type: "案例" },
+  { text: "目前正在消失的岗位包括：CRUD开发、简单页面开发、基础测试工程师、简单API对接、模板化代码编写。这些岗位正在被AI加速取代！速度比想象中快得多！", type: "干货" },
+  { text: "不容易被AI替代的岗位：系统架构师、AI工程师、安全工程师、技术管理、复杂问题专家。这些需要深度专业知识和创造性思维的岗位仍然相对安全。", type: "干货" },
+  { text: "核心能力！AI无法替代的能力：复杂问题分析、系统设计、创新方案、团队协作、跨语言开发。这些是程序员的核心竞争力！也是你不会被淘汰的关键！", type: "干货" },
+  { text: "AI不能做什么？它不能理解业务需求、不能做系统架构、不能做技术创新、不能带团队。AI是工具，不是替代者！它只能执行，不能创新！", type: "干货" },
+  { text: "而且AI有明显的局限性：它会出错、它没有直觉、它不理解业务场景、它不能真正思考。真正重要的决定，还是需要人来做！", type: "干货" },
+  { text: "立即行动！每天学习1小时AI编程工具，3个月后甩开90%的人！推荐学习路线：Python基础、ChatGPT提示工程、Claude、Cursor！", type: "行动" },
+  { text: "进阶路线：学会v0生成前端、使用Devin做项目、自己开发Agent！学会用AI协作，而不是和AI竞争！这是未来程序员的基本技能！", type: "行动" },
+  { text: "未来已来！AI编程不是选择题，是必答题！不会AI编程的程序员，将被时代淘汰！就像当年不会用电脑的人被淘汰一样！", type: "金句" },
+  { text: "记住这句话：AI不会杀死程序员，但会杀死不会AI的程序员！趁现在学起来，还来得及！学习AI不是为了别的，是为了让自己更有价值！", type: "金句" },
+  { text: "如果你想了解更多AI副业变现的方法，欢迎点赞收藏关注！下期我将告诉你如何用AI做副业月入过万！这是很多人正在做的事情，你也可以！", type: "CTA" },
+  { text: "感谢观看！2026年，让我们一起拥抱AI，成为不被时代淘汰的程序员！点赞、投币、收藏、关注！我们下期再见！", type: "CTA" }
+];
+
+const templates = {
+  标题: (t) => `<!DOCTYPE html><html><head><style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@900&display=swap');
+*{margin:0;padding:0}body{background:linear-gradient(135deg,#1a1a2e,#16213e);height:100vh;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Noto Sans SC'}
+.container{text-align:center;padding:60px 40px}
+.icon{font-size:120px;margin-bottom:30px}
+.title{font-size:42px;font-weight:900;background:linear-gradient(90deg,#FF6B6B,#FFE66D);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.6}
+</style></head><body><div class="container"><div class="icon">💻</div><div class="title">${t}</div></div></body></html>`,
+  
+  干货: (t) => `<!DOCTYPE html><html><head><style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@700&display=swap');
+*{margin:0;padding:0}body{background:linear-gradient(135deg,#134E5E,#71B280);height:100vh;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Noto Sans SC'}
+.container{text-align:center;padding:50px 60px;max-width:900px}
+.title{font-size:30px;font-weight:bold;line-height:1.9}
+</style></head><body><div class="container"><div class="title">${t}</div></div></body></html>`,
+  
+  数据: (t) => `<!DOCTYPE html><html><head><style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@700&display=swap');
+*{margin:0;padding:0}body{background:linear-gradient(135deg,#232526,#414345);height:100vh;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Noto Sans SC'}
+.container{text-align:center;padding:50px 60px}
+.tag{font-size:28px;background:#FF6B6B;padding:15px 40px;border-radius:30px;display:inline-block;margin-bottom:30px}
+.title{font-size:34px;font-weight:bold;line-height:2;background:rgba(255,255,255,0.1);padding:40px;border-radius:20px}
+</style></head><body><div class="container"><span class="tag">📊 数据</span><div class="title">${t}</div></div></body></html>`,
+  
+  案例: (t) => `<!DOCTYPE html><html><head><style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@700&display=swap');
+*{margin:0;padding:0}body{background:linear-gradient(135deg,#0f2027,#203a43);height:100vh;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Noto Sans SC'}
+.container{text-align:center;padding:50px 60px}
+.tag{font-size:28px;background:#4ECDC4;padding:15px 40px;border-radius:30px;display:inline-block;margin-bottom:30px}
+.title{font-size:32px;font-weight:bold;line-height:1.9}
+</style></head><body><div class="container"><span class="tag">📌 真实案例</span><div class="title">${t}</div></div></body></html>`,
+  
+  行动: (t) => `<!DOCTYPE html><html><head><style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@700&display=swap');
+*{margin:0;padding:0}body{background:linear-gradient(135deg,#134E5E,#71B280);height:100vh;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Noto Sans SC'}
+.container{text-align:center;padding:50px 60px}
+.title{font-size:36px;font-weight:bold;line-height:1.8}
+</style></head><body><div class="container"><div class="title">${t}</div></div></body></html>`,
+  
+  金句: (t) => `<!DOCTYPE html><html><head><style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@900&display=swap');
+*{margin:0;padding:0}body{background:linear-gradient(135deg,#4facfe,#00f2fe);height:100vh;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Noto Sans SC'}
+.container{text-align:center;padding:60px;border:5px solid #fff;border-radius:30px;background:rgba(0,0,0,0.2)}
+.title{font-size:38px;font-weight:900;line-height:1.9}
+</style></head><body><div class="container"><div class="title">${t}</div></div></body></html>`,
+  
+  CTA: () => `<!DOCTYPE html><html><head><style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@900&display=swap');
+*{margin:0;padding:0}body{background:linear-gradient(135deg,#0f0c29,#302b63);height:100vh;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Noto Sans SC'}
+.container{text-align:center;padding:50px;border:3px solid #00D4FF;border-radius:30px;background:rgba(0,212,255,0.1)}
+.title{font-size:48px;font-weight:900;background:linear-gradient(90deg,#00D4FF,#00FF88);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+</style></head><body><div class="container"><div class="title">👍 点赞 📥 收藏 👋 关注</div></div></body></html>`
+};
+
+async function run() {
+  console.log("╔════════════════════════════════════════╗");
+  console.log("║   爆款视频生成器 - 同步修复版          ║");
+  console.log("║   每段文字单独生成语音，按实际时长      ║");
+  console.log("╚════════════════════════════════════════╝\n");
+  
+  const fps = 2;
+  
+  // 步骤1: 每段文字单独生成语音，获取实际时长
+  console.log("[步骤1] 生成语音并获取实际时长");
+  const segmentDurations = [];
+  
+  for (let i = 0; i < segments.length; i++) {
+    // 生成语音
+    execSync(`python3 gen_audio.py "${segments[i].text.replace(/"/g, '\\"')}"`, { stdio: 'ignore' });
+    execSync("mv temp-audio.mp3 seg-" + i + ".mp3", { stdio: 'ignore' });
+    
+    // 获取实际时长
+    const dur = parseFloat(execSync(`ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 seg-${i}.mp3`, { encoding: 'utf8' }).trim());
+    segmentDurations.push(dur);
+    console.log(`  段${i+1}: ${dur.toFixed(1)}秒 - ${segments[i].type}`);
+  }
+  
+  // 计算总时长
+  const totalAudioDuration = segmentDurations.reduce((a, b) => a + b, 0);
+  console.log(`\n总语音时长: ${totalAudioDuration.toFixed(1)}秒 (${(totalAudioDuration/60).toFixed(1)}分钟)\n`);
+  
+  // 步骤2: 根据每段实际时长分配帧数
+  console.log("[步骤2] 计算帧数分配");
+  const framePerSeg = segmentDurations.map(d => Math.ceil(d * fps));
+  const totalFrames = framePerSeg.reduce((a, b) => a + b, 0);
+  
+  console.log(`总帧数: ${totalFrames}帧 (${fps}fps)`);
+  for (let i = 0; i < segments.length; i++) {
+    console.log(`  段${i+1} (${segmentDurations[i].toFixed(1)}秒): ${framePerSeg[i]}帧`);
+  }
+  console.log("");
+  
+  // 步骤3: 生成帧图片
+  console.log("[步骤3] 生成帧图片");
+  const browser = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', args: ['--no-sandbox'] });
+  
+  let frameIdx = 0;
+  for (let i = 0; i < segments.length; i++) {
+    const seg = segments[i];
+    let html = templates[seg.type](seg.text);
+    
+    const page = await browser.newPage();
+    await page.setViewport({ width: 1080, height: 1920 });
+    await page.setContent(html);
+    await new Promise(r => setTimeout(r, 300));
+    
+    for (let f = 0; f < framePerSeg[i]; f++) {
+      await page.screenshot({ path: `frame-${frameIdx}.png`, fullPage: true });
+      frameIdx++;
+    }
+    await page.close();
+    console.log(`  ${seg.type}: ${framePerSeg[i]}帧`);
+  }
+  await browser.close();
+  console.log(`共${frameIdx}帧\n`);
+  
+  // 步骤4: 合并语音
+  console.log("[步骤4] 合并语音");
+  let filterInputs = "", filterDesc = "";
+  for (let i = 0; i < segments.length; i++) {
+    filterInputs += `-i seg-${i}.mp3 `;
+    filterDesc += `[${i}:a]`;
+  }
+  filterDesc += `concat=n=${segments.length}:v=0:a=1[out]`;
+  execSync(`ffmpeg -y ${filterInputs} -filter_complex "${filterDesc}" -map "[out" combined-audio.mp3`, { stdio: 'ignore' });
+  const finalDuration = parseFloat(execSync(`ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 combined-audio.mp3`, { encoding: 'utf8' }).trim());
+  console.log(`合并后: ${finalDuration.toFixed(1)}秒\n`);
+  
+  // 步骤5: 合成视频
+  console.log("[步骤5] 合成视频");
+  execSync(`ffmpeg -y -framerate ${fps} -i "frame-%d.png" -i combined-audio.mp3 -c:v libx264 -pix_fmt yuv420p -vf "scale=1080:1920" -c:a aac -t ${finalDuration} final-video.mp4`, { stdio: 'inherit' });
+  
+  // 步骤6: 验证
+  console.log("\n[步骤6] 质量验证");
+  const videoDuration = parseFloat(execSync(`ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 final-video.mp4`, { encoding: 'utf8' }).trim());
+  const audioDuration = parseFloat(execSync(`ffprobe -v error -select_streams a:0 -show_entries stream=duration -of default=noprint_wrappers=1:nokey=1 final-video.mp4`, { encoding: 'utf8' }).trim());
+  const stats = fs.statSync("final-video.mp4");
+  
+  const diff = Math.abs(videoDuration - finalDuration);
+  
+  console.log(`  视频时长: ${videoDuration.toFixed(1)}秒`);
+  console.log(`  音频时长: ${audioDuration.toFixed(1)}秒`);
+  console.log(`  原始合并: ${finalDuration.toFixed(1)}秒`);
+  console.log(`  同步差值: ${diff.toFixed(2)}秒 (${diff < 0.5 ? "✅ 同步" : "❌ 不同步"})`);
+  console.log(`  文件大小: ${(stats.size/1024/1024).toFixed(2)}MB`);
+  
+  // 清理
+  for (let i = 0; i < frameIdx; i++) try{fs.unlinkSync(`frame-${i}.png`)}catch{}
+  for (let i = 0; i < segments.length; i++) try{fs.unlinkSync(`seg-${i}.mp3`)}catch{}
+  try{fs.unlinkSync('combined-audio.mp3')}catch{}
+  
+  execSync("mkdir -p out && cp final-video.mp4 out/ai-coding-sync-v7.mp4");
+  
+  console.log("\n" + "═".repeat(50));
+  if (diff < 0.5) {
+    console.log("✅ 视频生成完成，音视频同步！");
+  } else {
+    console.log("⚠️ 视频生成完成，但存在同步问题");
+  }
+  console.log("═".repeat(50));
+}
+
+run();

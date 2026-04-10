@@ -1,0 +1,1 @@
+{"version":3,"file":"visualize-audio.d.ts","sourceRoot":"","sources":["../src/visualize-audio.ts"],"names":[],"mappings":"AAEA,OAAO,EAAC,SAAS,EAAC,MAAM,SAAS,CAAC;AAIlC,aAAK,YAAY,GAAG;IACnB,SAAS,EAAE,SAAS,CAAC;IACrB,KAAK,EAAE,MAAM,CAAC;IACd,GAAG,EAAE,MAAM,CAAC;IACZ,eAAe,EAAE,MAAM,CAAC;CACxB,CAAC;AAyBF,eAAO,MAAM,cAAc;;cA4B1B,CAAC"}

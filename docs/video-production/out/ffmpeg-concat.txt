@@ -1,0 +1,15 @@
+file 'out/img-0.png'
+duration 2.928
+file 'out/img-1.png'
+duration 9.576
+file 'out/img-2.png'
+duration 3.312
+file 'out/img-3.png'
+duration 4.44
+file 'out/img-4.png'
+duration 4.272
+file 'out/img-5.png'
+duration 5.712
+file 'out/img-6.png'
+duration 4.584
+file 'out/img-6.png'
