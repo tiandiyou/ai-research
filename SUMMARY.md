@@ -17,6 +17,7 @@
 - **[OpenSpec(Fission)](docs/02-sdd-frameworks/AI-Tech-006_OpenSpec(Fission).md)** — Spec-Driven开发
 
 ### 🤖 03 - Agent 编排框架
+- **[AI项目技术趋势报告(2026-04-11)](docs/03-agent-frameworks/AI-Tech-Trending-20260411.md)** — GitHub Trending Daily,
 - **[AutoGen(Microsoft)](docs/03-agent-frameworks/AI-Tech-007_AutoGen(Microsoft).md)** — 多Agent对话系统
 - **[AI-Agent基础设施(General)](docs/03-agent-frameworks/AI-Tech-031_AI_Agent_Infrastructure_Depth.md)** — AI基础设施技术深度分析 🔥🔥
 - **[LangGraph(LangChain)](docs/03-agent-frameworks/AI-Tech-033_LangGraph_Depth.md)** — 图计算Agent编排框架 🔥
